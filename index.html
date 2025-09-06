@@ -9,34 +9,16 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:"Noto Sans Lao",sans-serif;background:url('https://img2.pic.in.th/pic/-2a43c040af52256bd.png') no-repeat center center fixed;background-size:cover;color:#D4AF37;overflow-x:hidden;position:relative;min-height:100vh;}
-.bg-animation{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden;}
-.floating-shapes{position:absolute;width:100%;height:100%;}
-.shape{position:absolute;border-radius:50%;background:rgba(255,255,255,0.1);animation:float 25s infinite linear;}
-.shape:nth-child(1){width:100px;height:100px;top:20%;left:10%;animation-delay:0s;}
-.shape:nth-child(2){width:150px;height:150px;top:60%;left:80%;animation-delay:-8s;}
-.shape:nth-child(3){width:80px;height:80px;top:80%;left:20%;animation-delay:-15s;}
-.shape:nth-child(4){width:120px;height:120px;top:10%;left:70%;animation-delay:-20s;}
-@keyframes float{0%{transform:translateY(0) rotate(0deg);opacity:0.7;}50%{transform:translateY(-120px) rotate(180deg);opacity:0.3;}100%{transform:translateY(0) rotate(360deg);opacity:0.7;}}
 .shell-container{max-width:900px;margin:0 auto;padding:40px 20px;text-align:center;position:relative;z-index:2;}
 .logo-area{margin-bottom:30px;}
 .logo-area img{width:200px;border-radius:15px;box-shadow:0 0 20px rgba(255,215,0,0.4);}
 h1{font-family:'Playfair Display', serif;font-size:2.5rem;margin-bottom:15px;text-shadow:0 0 30px rgba(255,215,0,0.3);}
 p{margin-bottom:30px;font-size:1.2rem;color:rgba(255,215,0,0.8);}
-.btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:15px 25px;font-size:1rem;font-weight:bold;color:#fff;background:#A0522D;border-radius:15px;text-decoration:none;transition:0.3s;margin:10px auto;position:relative;overflow:hidden;}
-.btn i{font-size:1.2rem;}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:15px 25px;font-size:1rem;font-weight:bold;color:#fff;background:#A0522D;border-radius:15px;text-decoration:none;transition:0.3s;margin:10px auto;}
 .btn:hover{transform:translateY(-3px) scale(1.02);background:#a0522D;}
 </style>
 </head>
 <body>
-
-<div class="bg-animation">
-  <div class="floating-shapes">
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-  </div>
-</div>
 
 <div class="shell-container">
   <div class="logo-area">
@@ -46,9 +28,6 @@ p{margin-bottom:30px;font-size:1.2rem;color:rgba(255,215,0,0.8);}
   <p>ຄາສິໂນອອນລາຍ ບໍລິການ 24/7</p>
 
   <a href="#" class="btn" id="enterGameBtn"><i class="fa-solid fa-play"></i> ເຂົ້າຫາເກມ</a>
-  <a href="https://wa.me/2028490125" class="btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-  <a href="https://www.facebook.com/profile.php?id=61577075055319" class="btn"><i class="fab fa-facebook"></i> Facebook</a>
-  <a href="https://lin.ee/yfeHOjNd" class="btn"><i class="fab fa-line"></i> LINE</a>
 </div>
 
 <script>
@@ -56,9 +35,9 @@ const btn = document.getElementById('enterGameBtn');
 
 btn.addEventListener('click', function(e) {
   e.preventDefault();
-
-  // เปิดในแท็บใหม่แบบเต็มจอ
-  const gameWindow = window.open("/api/proxy/", "_blank");
+  
+  // เปิดในแท็บใหม่แบบเต็มจอผ่าน proxy server
+  const gameWindow = window.open("http://localhost:5000/", "_blank");
   if (gameWindow) {
     gameWindow.focus();
     gameWindow.moveTo(0,0);
