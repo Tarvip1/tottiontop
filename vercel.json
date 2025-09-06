@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/game/(.*)",
-      "destination": "https://tottygame.github.io/test/$1"
+      "destination": "https://totti911-fastx.store/$1"
     }
   ]
 }
