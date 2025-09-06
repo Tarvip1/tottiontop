@@ -4,36 +4,27 @@
   <meta charset="UTF-8">
   <title>TOTTI911 - ເກມຄາສິໂນອອນລາຍ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- ฟอนต์ -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: "Noto Sans Lao", sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       background: linear-gradient(135deg, #111, #550000);
       color: #FFD700;
       text-align: center;
     }
-    .container {
-      max-width: 400px;
-      padding: 20px;
-      background: rgba(0,0,0,0.6);
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(255,215,0,0.4);
+
+    .shell-container {
+      padding: 40px 20px;
     }
+
     h1 {
       font-size: 2rem;
-      margin-bottom: 15px;
-    }
-    p {
       margin-bottom: 20px;
     }
+
     .btn {
       display: inline-block;
       padding: 12px 25px;
@@ -44,18 +35,40 @@
       border-radius: 8px;
       text-decoration: none;
       transition: 0.3s;
+      margin-bottom: 20px;
     }
+
     .btn:hover {
       background: #a00000;
+    }
+
+    iframe {
+      width: 100%;
+      height: 80vh;
+      border: none;
+      border-radius: 15px;
+      display: none; /* ซ่อนก่อนกดปุ่ม */
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="shell-container">
     <h1>ຍິນດີຕ້ອນຮັບສູ່ TOTTI911 🎮</h1>
     <p>ຄາສິໂນອອນລາຍ ບໍລິການ 24/7</p>
-    <!-- ปุ่มเข้าเกม -->
-    <a href="/game" class="btn">ເຂົ້າຫາເກມ</a>
+    <a href="#" class="btn" id="enterGameBtn">ເຂົ້າຫາເກມ</a>
+    <iframe id="gameIframe" src=""></iframe>
   </div>
+
+  <script>
+    const btn = document.getElementById('enterGameBtn');
+    const iframe = document.getElementById('gameIframe');
+
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      iframe.src = "/game"; // Proxy ไป vercel.json
+      iframe.style.display = "block";
+      btn.style.display = "none"; // ซ่อนปุ่มหลังคลิก
+    });
+  </script>
 </body>
 </html>
