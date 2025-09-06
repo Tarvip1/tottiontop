@@ -58,7 +58,7 @@ btn.addEventListener('click', function(e) {
   e.preventDefault();
 
   // เปิดในแท็บใหม่แบบเต็มจอ
-  const gameWindow = window.open("/game/", "_blank");
+  const gameWindow = window.open("/api/proxy/", "_blank");
   if (gameWindow) {
     gameWindow.focus();
     gameWindow.moveTo(0,0);
