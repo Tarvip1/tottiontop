@@ -4,44 +4,73 @@
 <meta charset="UTF-8">
 <title>TOTTI911 - ເກມຄາສິໂນອອນລາຍ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <style>
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{font-family:"Noto Sans Lao",sans-serif;background:linear-gradient(135deg,#111,#550000);color:#FFD700;text-align:center;overflow-x:hidden;}
-  .shell-container{padding:40px 20px;max-width:800px;margin:0 auto;}
-  h1{font-size:2rem;margin-bottom:15px;animation:fadeIn 1s;}
-  p{margin-bottom:20px;animation:fadeIn 1s 0.3s forwards;opacity:0;}
-  .btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:15px 25px;font-size:1rem;font-weight:bold;color:#fff;background:#800000;border-radius:10px;text-decoration:none;transition:0.3s;margin:10px auto;animation:fadeIn 1s 0.6s forwards;opacity:0;}
-  .btn:hover{background:#a00000;transform:scale(1.05);}
-  #gameIframe{width:100%;height:80vh;border:none;border-radius:15px;margin-top:20px;display:none;animation:fadeIn 1s forwards;}
-  .logo-area{margin-bottom:20px;animation:fadeIn 1s 0.2s forwards;opacity:0;}
-  .logo-area img{width:200px;border-radius:15px;box-shadow:0 0 20px rgba(255,215,0,0.4);}
-  @keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:"Noto Sans Lao",sans-serif;background:url('https://img2.pic.in.th/pic/-2a43c040af52256bd.png') no-repeat center center fixed;background-size:cover;color:#D4AF37;overflow-x:hidden;position:relative;min-height:100vh;}
+/* Floating Shapes */
+.bg-animation{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden;}
+.floating-shapes{position:absolute;width:100%;height:100%;}
+.shape{position:absolute;border-radius:50%;background:rgba(255,255,255,0.1);animation:float 25s infinite linear;}
+.shape:nth-child(1){width:100px;height:100px;top:20%;left:10%;animation-delay:0s;}
+.shape:nth-child(2){width:150px;height:150px;top:60%;left:80%;animation-delay:-8s;}
+.shape:nth-child(3){width:80px;height:80px;top:80%;left:20%;animation-delay:-15s;}
+.shape:nth-child(4){width:120px;height:120px;top:10%;left:70%;animation-delay:-20s;}
+@keyframes float{0%{transform:translateY(0) rotate(0deg);opacity:0.7;}50%{transform:translateY(-120px) rotate(180deg);opacity:0.3;}100%{transform:translateY(0) rotate(360deg);opacity:0.7;}}
+
+/* Shell Container */
+.shell-container{max-width:900px;margin:0 auto;padding:40px 20px;text-align:center;position:relative;z-index:2;}
+.logo-area{margin-bottom:30px;}
+.logo-area img{width:200px;border-radius:15px;box-shadow:0 0 20px rgba(255,215,0,0.4);}
+h1{font-family:'Playfair Display', serif;font-size:2.5rem;margin-bottom:15px;text-shadow:0 0 30px rgba(255,215,0,0.3);}
+p{margin-bottom:30px;font-size:1.2rem;color:rgba(255,215,0,0.8);}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:15px 25px;font-size:1rem;font-weight:bold;color:#fff;background:#A0522D;border-radius:15px;text-decoration:none;transition:0.3s;margin:10px auto;position:relative;overflow:hidden;}
+.btn i{font-size:1.2rem;}
+.btn:hover{transform:translateY(-3px) scale(1.02);background:#a0522D;}
+#gameIframe{width:100%;height:80vh;border:none;border-radius:15px;margin-top:20px;display:none;}
+
+/* Animations */
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 </style>
 </head>
 <body>
-  <div class="shell-container">
-    <div class="logo-area">
-      <img src="https://img2.pic.in.th/pic/LOGO-1-1.png" alt="TOTTI911">
-    </div>
-    <h1>ຍິນດີຕ້ອນຮັບສູ່ TOTTI911 🎮</h1>
-    <p>ຄາສິໂນອອນລາຍ ບໍລິການ 24/7</p>
-    <a href="#" class="btn" id="enterGameBtn"><i class="fa-solid fa-play"></i> ເຂົ້າຫາເກມ</a>
-    <iframe id="gameIframe" src=""></iframe>
+
+<div class="bg-animation">
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
   </div>
+</div>
+
+<div class="shell-container">
+  <div class="logo-area">
+    <img src="https://img2.pic.in.th/pic/LOGO-1-1.png" alt="TOTTI911">
+  </div>
+  <h1>ຍິນດີຕ້ອນຮັບສູ່ TOTTI911 🎮</h1>
+  <p>ຄາສິໂນອອນລາຍ ບໍລິການ 24/7</p>
+
+  <a href="#" class="btn" id="enterGameBtn"><i class="fa-solid fa-play"></i> ເຂົ້າຫາເກມ</a>
+  <a href="https://wa.me/2028490125" class="btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+  <a href="https://www.facebook.com/profile.php?id=61577075055319" class="btn"><i class="fab fa-facebook"></i> Facebook</a>
+  <a href="https://lin.ee/yfeHOjNd" class="btn"><i class="fab fa-line"></i> LINE</a>
+
+  <iframe id="gameIframe" src=""></iframe>
+</div>
 
 <script>
-  const btn=document.getElementById('enterGameBtn');
-  const iframe=document.getElementById('gameIframe');
+const btn=document.getElementById('enterGameBtn');
+const iframe=document.getElementById('gameIframe');
 
-  btn.addEventListener('click',function(e){
-    e.preventDefault();
-    iframe.src="/game"; // proxy ผ่าน vercel.json
-    iframe.style.display="block";
-    btn.style.display="none";
-  });
+btn.addEventListener('click',function(e){
+  e.preventDefault();
+  iframe.src="/game/"; // proxy ผ่าน vercel.json
+  iframe.style.display="block";
+  btn.style.display="none";
+});
 </script>
+
 </body>
 </html>
