@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <title>TOTTI911 - ເກມຄາສິໂນອອນລາຍ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:"Noto Sans Lao",sans-serif;background:url('https://img2.pic.in.th/pic/-2a43c040af52256bd.png') no-repeat center center fixed;background-size:cover;color:#D4AF37;overflow-x:hidden;position:relative;min-height:100vh;}
+
 /* Floating Shapes */
 .bg-animation{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden;}
 .floating-shapes{position:absolute;width:100%;height:100%;}
@@ -28,7 +29,7 @@ p{margin-bottom:30px;font-size:1.2rem;color:rgba(255,215,0,0.8);}
 .btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:15px 25px;font-size:1rem;font-weight:bold;color:#fff;background:#A0522D;border-radius:15px;text-decoration:none;transition:0.3s;margin:10px auto;position:relative;overflow:hidden;}
 .btn i{font-size:1.2rem;}
 .btn:hover{transform:translateY(-3px) scale(1.02);background:#a0522D;}
-#gameIframe{width:100%;height:80vh;border:none;border-radius:15px;margin-top:20px;display:none;}
+#gameIframe{width:100%;height:80vh;border:none;border-radius:15px;margin-top:20px;display:none;transition:all 0.3s ease;}
 
 /* Animations */
 @keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
@@ -66,7 +67,7 @@ const iframe=document.getElementById('gameIframe');
 
 btn.addEventListener('click',function(e){
   e.preventDefault();
-  iframe.src="/game/"; // proxy ผ่าน vercel.json
+  iframe.src="/game"; // proxy ผ่าน vercel.json
   iframe.style.display="block";
   btn.style.display="none";
 });
