@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-     "source": "/game/:path*", 
-"destination": "https://totti911-sun.online/:path*"
+     "source": "/game/", 
+"destination": "https://totti911-sun.online/"
     }
              ]   
 }
