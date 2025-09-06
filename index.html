@@ -67,7 +67,7 @@ const iframe=document.getElementById('gameIframe');
 
 btn.addEventListener('click',function(e){
   e.preventDefault();
-  iframe.src="/game/"; // proxy ผ่าน vercel.json
+  iframe.src="/game"; // proxy ผ่าน vercel.json
   iframe.style.display="block";
   btn.style.display="none";
 });
