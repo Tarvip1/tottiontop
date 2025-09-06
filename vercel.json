@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-     "source": "/game(.*)", 
+     "source": "/game:path*", 
 "destination": "https://totti911-fastx.store/"
     }
              ]   
