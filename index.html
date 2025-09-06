@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+    <meta charset="UTF-8">
+    <title>TOTTI911 - ເກມຄາສິໂນອອນລາຍ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ฟอนต์ลาว -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- ไอคอน -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            height: 100%;
+            width: 100%;
+            font-family: "Noto Sans Lao", sans-serif;
+            overflow: hidden; /* ไม่ให้ scrollbar */
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- ✅ โหลดเว็บจริงผ่าน iframe -->
+    <iframe src="https://tottygame.github.io/test/"></iframe>
+
+    <footer style="
+        position: absolute; 
+        bottom: 0; 
+        left: 0; 
+        width: 100%; 
+        background: #800000; 
+        color: #FFD700; 
+        text-align: center; 
+        padding: 15px; 
+        font-size: 0.9rem;">
+        © 2025 TOTTI911 | ຍິນດີໃຫ້ບໍລິການ 24/7
+    </footer>
+
+    <script>
+        // ✅ หลอก hostname ใน Console
+        Object.defineProperty(window.location, "hostname", {
+            get: () => "totti911.com"  // <<-- ใส่ hostname ปลอมที่อยากให้เห็น
+        });
+
+        // ✅ สร้าง location ปลอม
+        const fakeLocation = {
+            href: "https://totti911.com/",
+            hostname: "totti911.com",
+            origin: "https://totti911.com",
+            protocol: "https:"
+        };
+        Object.freeze(fakeLocation);
+
+        // ✅ Override location
+        window.__defineGetter__("location", () => fakeLocation);
+
+        // ✅ ป้องกัน console.log เปิดเผย host จริง
+        console.log = new Proxy(console.log, {
+            apply: (target, thisArg, args) => {
+                if (args && args[0] && typeof args[0] === "string" && args[0].includes("http")) {
+                    return target.apply(thisArg, ["[Blocked for security]"]);
+                }
+                return target.apply(thisArg, args);
+            }
+        });
+    </script>
+</body>
+</html>
