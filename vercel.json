@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/game/(.*)",
-      "destination": "https://totti911-fastx.store/$1"
+     "source": "/game", 
+"destination": "https://totti911-fastx.store/"
     }
   ]
 }
